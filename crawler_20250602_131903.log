@@ -1,0 +1,339 @@
+2025-06-02 13:19:03,627 - INFO - WebDriver 설정 시작
+2025-06-02 13:19:07,106 - INFO - WebDriver 설정 완료 (소요시간: 3.48초)
+2025-06-02 13:19:26,244 - INFO - 카테고리 크롤링 시작: https://cafe.naver.com/joonggonara/ArticleList.nhn?search.clubid=10050146&search.menuid=356&search.boardtype=L
+2025-06-02 13:19:26,248 - INFO - URL 수집 시작 (최대 2페이지)
+2025-06-02 13:19:29,414 - INFO - iframe 전환 성공 (소요시간: 0.04초)
+2025-06-02 13:19:39,675 - ERROR - 페이지당 게시글 수 변경 실패: Message: 
+Stacktrace:
+0   chromedriver                        0x0000000102f1c708 cxxbridge1$str$ptr + 2729312
+1   chromedriver                        0x0000000102f1496c cxxbridge1$str$ptr + 2697156
+2   chromedriver                        0x0000000102a66728 cxxbridge1$string$len + 90444
+3   chromedriver                        0x0000000102aad9b8 cxxbridge1$string$len + 381916
+4   chromedriver                        0x0000000102aef0c4 cxxbridge1$string$len + 649960
+5   chromedriver                        0x0000000102aa1bc0 cxxbridge1$string$len + 333284
+6   chromedriver                        0x0000000102ee0298 cxxbridge1$str$ptr + 2482416
+7   chromedriver                        0x0000000102ee352c cxxbridge1$str$ptr + 2495364
+8   chromedriver                        0x0000000102ec1ae0 cxxbridge1$str$ptr + 2357560
+9   chromedriver                        0x0000000102ee3db4 cxxbridge1$str$ptr + 2497548
+10  chromedriver                        0x0000000102eb2dec cxxbridge1$str$ptr + 2296900
+11  chromedriver                        0x0000000102f03c4c cxxbridge1$str$ptr + 2628260
+12  chromedriver                        0x0000000102f03dd8 cxxbridge1$str$ptr + 2628656
+13  chromedriver                        0x0000000102f145b8 cxxbridge1$str$ptr + 2696208
+14  libsystem_pthread.dylib             0x00000001944282e4 _pthread_start + 136
+15  libsystem_pthread.dylib             0x00000001944230fc thread_start + 8
+
+2025-06-02 13:19:39,677 - INFO - 페이지 1 처리 시작
+2025-06-02 13:19:41,701 - INFO - 페이지 1 게시글 수: 15
+2025-06-02 13:19:45,241 - INFO - 페이지 1 처리 완료 (소요시간: 5.56초)
+2025-06-02 13:19:45,242 - INFO - 페이지 2 처리 시작
+2025-06-02 13:19:47,374 - INFO - 페이지 2 게시글 수: 15
+2025-06-02 13:19:47,460 - INFO - 페이지 2 처리 완료 (소요시간: 2.22초)
+2025-06-02 13:19:47,460 - INFO - URL 수집 완료 (총 30개 URL, 소요시간: 21.21초)
+2025-06-02 13:19:47,460 - INFO - 수집된 게시글 URL 수: 30
+2025-06-02 13:19:47,491 - INFO - CSV 파일 생성됨: joonggo_data_1748837987.csv
+2025-06-02 13:19:47,491 - INFO - 병렬 처리 시작 (워커 수: 4)
+2025-06-02 13:19:49,803 - INFO - iframe 전환 성공 (소요시간: 0.02초)
+2025-06-02 13:19:49,871 - INFO - 상품 데이터 추출 완료: 페이지유 오브엘 니트 (소요시간: 2.38초)
+2025-06-02 13:19:50,584 - INFO - iframe 전환 성공 (소요시간: 0.31초)
+2025-06-02 13:19:50,587 - ERROR - iframe 전환 실패: Message: no such element: element not found
+  (Session info: chrome=137.0.7151.55); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000102f1c708 cxxbridge1$str$ptr + 2729312
+1   chromedriver                        0x0000000102f1496c cxxbridge1$str$ptr + 2697156
+2   chromedriver                        0x0000000102a66728 cxxbridge1$string$len + 90444
+3   chromedriver                        0x0000000102a77164 cxxbridge1$string$len + 158600
+4   chromedriver                        0x0000000102a76240 cxxbridge1$string$len + 154724
+5   chromedriver                        0x0000000102a6ccf4 cxxbridge1$string$len + 116504
+6   chromedriver                        0x0000000102a6b498 cxxbridge1$string$len + 110268
+7   chromedriver                        0x0000000102a6e728 cxxbridge1$string$len + 123212
+8   chromedriver                        0x0000000102a6e7d0 cxxbridge1$string$len + 123380
+9   chromedriver                        0x0000000102ab0520 cxxbridge1$string$len + 393028
+10  chromedriver                        0x0000000102af0a4c cxxbridge1$string$len + 656496
+11  chromedriver                        0x0000000102aef0c4 cxxbridge1$string$len + 649960
+12  chromedriver                        0x0000000102aa1bc0 cxxbridge1$string$len + 333284
+13  chromedriver                        0x0000000102ee0298 cxxbridge1$str$ptr + 2482416
+14  chromedriver                        0x0000000102ee352c cxxbridge1$str$ptr + 2495364
+15  chromedriver                        0x0000000102ec1ae0 cxxbridge1$str$ptr + 2357560
+16  chromedriver                        0x0000000102ee3db4 cxxbridge1$str$ptr + 2497548
+17  chromedriver                        0x0000000102eb2dec cxxbridge1$str$ptr + 2296900
+18  chromedriver                        0x0000000102f03c4c cxxbridge1$str$ptr + 2628260
+19  chromedriver                        0x0000000102f03dd8 cxxbridge1$str$ptr + 2628656
+20  chromedriver                        0x0000000102f145b8 cxxbridge1$str$ptr + 2696208
+21  libsystem_pthread.dylib             0x00000001944282e4 _pthread_start + 136
+22  libsystem_pthread.dylib             0x00000001944230fc thread_start + 8
+ (소요시간: 0.60초)
+2025-06-02 13:19:51,345 - INFO - iframe 전환 성공 (소요시간: 1.23초)
+2025-06-02 13:19:51,894 - INFO - 상품 데이터 추출 완료: 쥬시쥬디원피스 (소요시간: 4.40초)
+2025-06-02 13:19:52,096 - INFO - 상품 데이터 추출 완료: 쥬시쥬디원피스 (소요시간: 4.60초)
+2025-06-02 13:19:52,824 - INFO - iframe 전환 성공 (소요시간: 0.80초)
+2025-06-02 13:19:52,825 - ERROR - iframe 전환 실패: Message: no such element: element not found
+  (Session info: chrome=137.0.7151.55); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000102f1c708 cxxbridge1$str$ptr + 2729312
+1   chromedriver                        0x0000000102f1496c cxxbridge1$str$ptr + 2697156
+2   chromedriver                        0x0000000102a66728 cxxbridge1$string$len + 90444
+3   chromedriver                        0x0000000102a77164 cxxbridge1$string$len + 158600
+4   chromedriver                        0x0000000102a76240 cxxbridge1$string$len + 154724
+5   chromedriver                        0x0000000102a6ccf4 cxxbridge1$string$len + 116504
+6   chromedriver                        0x0000000102a6b498 cxxbridge1$string$len + 110268
+7   chromedriver                        0x0000000102a6e728 cxxbridge1$string$len + 123212
+8   chromedriver                        0x0000000102a6e7d0 cxxbridge1$string$len + 123380
+9   chromedriver                        0x0000000102ab0520 cxxbridge1$string$len + 393028
+10  chromedriver                        0x0000000102af0a4c cxxbridge1$string$len + 656496
+11  chromedriver                        0x0000000102aef0c4 cxxbridge1$string$len + 649960
+12  chromedriver                        0x0000000102aa1bc0 cxxbridge1$string$len + 333284
+13  chromedriver                        0x0000000102ee0298 cxxbridge1$str$ptr + 2482416
+14  chromedriver                        0x0000000102ee352c cxxbridge1$str$ptr + 2495364
+15  chromedriver                        0x0000000102ec1ae0 cxxbridge1$str$ptr + 2357560
+16  chromedriver                        0x0000000102ee3db4 cxxbridge1$str$ptr + 2497548
+17  chromedriver                        0x0000000102eb2dec cxxbridge1$str$ptr + 2296900
+18  chromedriver                        0x0000000102f03c4c cxxbridge1$str$ptr + 2628260
+19  chromedriver                        0x0000000102f03dd8 cxxbridge1$str$ptr + 2628656
+20  chromedriver                        0x0000000102f145b8 cxxbridge1$str$ptr + 2696208
+21  libsystem_pthread.dylib             0x00000001944282e4 _pthread_start + 136
+22  libsystem_pthread.dylib             0x00000001944230fc thread_start + 8
+ (소요시간: 0.09초)
+2025-06-02 13:19:54,089 - INFO - iframe 전환 성공 (소요시간: 0.02초)
+2025-06-02 13:19:54,208 - INFO - 상품 데이터 추출 완료: LIST 리스트 여름 반팔 원피스 (소요시간: 4.34초)
+2025-06-02 13:19:54,929 - INFO - iframe 전환 성공 (소요시간: 0.72초)
+2025-06-02 13:19:55,562 - INFO - 상품 데이터 추출 완료: 포에토 모헤어 오버핏 자켓(딥네이비) 팝니다 (소요시간: 3.67초)
+2025-06-02 13:19:55,787 - INFO - 상품 데이터 추출 완료: 포에토 모헤어 오버핏 자켓(딥네이비) 팝니다 (소요시간: 3.69초)
+2025-06-02 13:19:56,654 - INFO - iframe 전환 성공 (소요시간: 0.29초)
+2025-06-02 13:19:56,656 - ERROR - iframe 전환 실패: Message: no such element: element not found
+  (Session info: chrome=137.0.7151.55); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000102f1c708 cxxbridge1$str$ptr + 2729312
+1   chromedriver                        0x0000000102f1496c cxxbridge1$str$ptr + 2697156
+2   chromedriver                        0x0000000102a66728 cxxbridge1$string$len + 90444
+3   chromedriver                        0x0000000102a77164 cxxbridge1$string$len + 158600
+4   chromedriver                        0x0000000102a76240 cxxbridge1$string$len + 154724
+5   chromedriver                        0x0000000102a6ccf4 cxxbridge1$string$len + 116504
+6   chromedriver                        0x0000000102a6b498 cxxbridge1$string$len + 110268
+7   chromedriver                        0x0000000102a6e728 cxxbridge1$string$len + 123212
+8   chromedriver                        0x0000000102a6e7d0 cxxbridge1$string$len + 123380
+9   chromedriver                        0x0000000102ab0520 cxxbridge1$string$len + 393028
+10  chromedriver                        0x0000000102af0a4c cxxbridge1$string$len + 656496
+11  chromedriver                        0x0000000102aef0c4 cxxbridge1$string$len + 649960
+12  chromedriver                        0x0000000102aa1bc0 cxxbridge1$string$len + 333284
+13  chromedriver                        0x0000000102ee0298 cxxbridge1$str$ptr + 2482416
+14  chromedriver                        0x0000000102ee352c cxxbridge1$str$ptr + 2495364
+15  chromedriver                        0x0000000102ec1ae0 cxxbridge1$str$ptr + 2357560
+16  chromedriver                        0x0000000102ee3db4 cxxbridge1$str$ptr + 2497548
+17  chromedriver                        0x0000000102eb2dec cxxbridge1$str$ptr + 2296900
+18  chromedriver                        0x0000000102f03c4c cxxbridge1$str$ptr + 2628260
+19  chromedriver                        0x0000000102f03dd8 cxxbridge1$str$ptr + 2628656
+20  chromedriver                        0x0000000102f145b8 cxxbridge1$str$ptr + 2696208
+21  libsystem_pthread.dylib             0x00000001944282e4 _pthread_start + 136
+22  libsystem_pthread.dylib             0x00000001944230fc thread_start + 8
+ (소요시간: 1.67초)
+2025-06-02 13:19:57,807 - INFO - iframe 전환 성공 (소요시간: 0.02초)
+2025-06-02 13:19:58,080 - INFO - 상품 데이터 추출 완료: 여성 민소매블라우스 새거 화이트색상(77-88도가능) (소요시간: 3.87초)
+2025-06-02 13:19:58,987 - INFO - iframe 전환 성공 (소요시간: 1.04초)
+2025-06-02 13:19:58,989 - ERROR - iframe 전환 실패: Message: no such element: element not found
+  (Session info: chrome=137.0.7151.55); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000102f1c708 cxxbridge1$str$ptr + 2729312
+1   chromedriver                        0x0000000102f1496c cxxbridge1$str$ptr + 2697156
+2   chromedriver                        0x0000000102a66728 cxxbridge1$string$len + 90444
+3   chromedriver                        0x0000000102a77164 cxxbridge1$string$len + 158600
+4   chromedriver                        0x0000000102a76240 cxxbridge1$string$len + 154724
+5   chromedriver                        0x0000000102a6ccf4 cxxbridge1$string$len + 116504
+6   chromedriver                        0x0000000102a6b498 cxxbridge1$string$len + 110268
+7   chromedriver                        0x0000000102a6e728 cxxbridge1$string$len + 123212
+8   chromedriver                        0x0000000102a6e7d0 cxxbridge1$string$len + 123380
+9   chromedriver                        0x0000000102ab0520 cxxbridge1$string$len + 393028
+10  chromedriver                        0x0000000102af0a4c cxxbridge1$string$len + 656496
+11  chromedriver                        0x0000000102aef0c4 cxxbridge1$string$len + 649960
+12  chromedriver                        0x0000000102aa1bc0 cxxbridge1$string$len + 333284
+13  chromedriver                        0x0000000102ee0298 cxxbridge1$str$ptr + 2482416
+14  chromedriver                        0x0000000102ee352c cxxbridge1$str$ptr + 2495364
+15  chromedriver                        0x0000000102ec1ae0 cxxbridge1$str$ptr + 2357560
+16  chromedriver                        0x0000000102ee3db4 cxxbridge1$str$ptr + 2497548
+17  chromedriver                        0x0000000102eb2dec cxxbridge1$str$ptr + 2296900
+18  chromedriver                        0x0000000102f03c4c cxxbridge1$str$ptr + 2628260
+19  chromedriver                        0x0000000102f03dd8 cxxbridge1$str$ptr + 2628656
+20  chromedriver                        0x0000000102f145b8 cxxbridge1$str$ptr + 2696208
+21  libsystem_pthread.dylib             0x00000001944282e4 _pthread_start + 136
+22  libsystem_pthread.dylib             0x00000001944230fc thread_start + 8
+ (소요시간: 0.17초)
+2025-06-02 13:20:00,301 - INFO - iframe 전환 성공 (소요시간: 0.04초)
+2025-06-02 13:20:00,536 - INFO - 상품 데이터 추출 완료: 게스 청자켓 택포4만원 (소요시간: 2.46초)
+2025-06-02 13:20:00,546 - INFO - 상품 데이터 추출 완료: 게스 청자켓 택포4만원 (소요시간: 4.98초)
+2025-06-02 13:20:00,818 - INFO - 상품 데이터 추출 완료: 게스 청자켓 택포4만원 (소요시간: 5.03초)
+2025-06-02 13:20:01,859 - INFO - iframe 전환 성공 (소요시간: 0.70초)
+2025-06-02 13:20:02,449 - INFO - 상품 데이터 추출 완료: 리코리타 반팔 베이직 자켓 (소요시간: 3.46초)
+2025-06-02 13:20:03,509 - INFO - iframe 전환 성공 (소요시간: 0.67초)
+2025-06-02 13:20:03,511 - ERROR - iframe 전환 실패: Message: no such element: element not found
+  (Session info: chrome=137.0.7151.55); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000102f1c708 cxxbridge1$str$ptr + 2729312
+1   chromedriver                        0x0000000102f1496c cxxbridge1$str$ptr + 2697156
+2   chromedriver                        0x0000000102a66728 cxxbridge1$string$len + 90444
+3   chromedriver                        0x0000000102a77164 cxxbridge1$string$len + 158600
+4   chromedriver                        0x0000000102a76240 cxxbridge1$string$len + 154724
+5   chromedriver                        0x0000000102a6ccf4 cxxbridge1$string$len + 116504
+6   chromedriver                        0x0000000102a6b498 cxxbridge1$string$len + 110268
+7   chromedriver                        0x0000000102a6e728 cxxbridge1$string$len + 123212
+8   chromedriver                        0x0000000102a6e7d0 cxxbridge1$string$len + 123380
+9   chromedriver                        0x0000000102ab0520 cxxbridge1$string$len + 393028
+10  chromedriver                        0x0000000102af0a4c cxxbridge1$string$len + 656496
+11  chromedriver                        0x0000000102aef0c4 cxxbridge1$string$len + 649960
+12  chromedriver                        0x0000000102aa1bc0 cxxbridge1$string$len + 333284
+13  chromedriver                        0x0000000102ee0298 cxxbridge1$str$ptr + 2482416
+14  chromedriver                        0x0000000102ee352c cxxbridge1$str$ptr + 2495364
+15  chromedriver                        0x0000000102ec1ae0 cxxbridge1$str$ptr + 2357560
+16  chromedriver                        0x0000000102ee3db4 cxxbridge1$str$ptr + 2497548
+17  chromedriver                        0x0000000102eb2dec cxxbridge1$str$ptr + 2296900
+18  chromedriver                        0x0000000102f03c4c cxxbridge1$str$ptr + 2628260
+19  chromedriver                        0x0000000102f03dd8 cxxbridge1$str$ptr + 2628656
+20  chromedriver                        0x0000000102f145b8 cxxbridge1$str$ptr + 2696208
+21  libsystem_pthread.dylib             0x00000001944282e4 _pthread_start + 136
+22  libsystem_pthread.dylib             0x00000001944230fc thread_start + 8
+ (소요시간: 0.55초)
+2025-06-02 13:20:03,513 - ERROR - iframe 전환 실패: Message: no such element: element not found
+  (Session info: chrome=137.0.7151.55); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000102f1c708 cxxbridge1$str$ptr + 2729312
+1   chromedriver                        0x0000000102f1496c cxxbridge1$str$ptr + 2697156
+2   chromedriver                        0x0000000102a66728 cxxbridge1$string$len + 90444
+3   chromedriver                        0x0000000102a77164 cxxbridge1$string$len + 158600
+4   chromedriver                        0x0000000102a76240 cxxbridge1$string$len + 154724
+5   chromedriver                        0x0000000102a6ccf4 cxxbridge1$string$len + 116504
+6   chromedriver                        0x0000000102a6b498 cxxbridge1$string$len + 110268
+7   chromedriver                        0x0000000102a6e728 cxxbridge1$string$len + 123212
+8   chromedriver                        0x0000000102a6e7d0 cxxbridge1$string$len + 123380
+9   chromedriver                        0x0000000102ab0520 cxxbridge1$string$len + 393028
+10  chromedriver                        0x0000000102af0a4c cxxbridge1$string$len + 656496
+11  chromedriver                        0x0000000102aef0c4 cxxbridge1$string$len + 649960
+12  chromedriver                        0x0000000102aa1bc0 cxxbridge1$string$len + 333284
+13  chromedriver                        0x0000000102ee0298 cxxbridge1$str$ptr + 2482416
+14  chromedriver                        0x0000000102ee352c cxxbridge1$str$ptr + 2495364
+15  chromedriver                        0x0000000102ec1ae0 cxxbridge1$str$ptr + 2357560
+16  chromedriver                        0x0000000102ee3db4 cxxbridge1$str$ptr + 2497548
+17  chromedriver                        0x0000000102eb2dec cxxbridge1$str$ptr + 2296900
+18  chromedriver                        0x0000000102f03c4c cxxbridge1$str$ptr + 2628260
+19  chromedriver                        0x0000000102f03dd8 cxxbridge1$str$ptr + 2628656
+20  chromedriver                        0x0000000102f145b8 cxxbridge1$str$ptr + 2696208
+21  libsystem_pthread.dylib             0x00000001944282e4 _pthread_start + 136
+22  libsystem_pthread.dylib             0x00000001944230fc thread_start + 8
+ (소요시간: 0.40초)
+2025-06-02 13:20:04,663 - INFO - iframe 전환 성공 (소요시간: 0.02초)
+2025-06-02 13:20:05,166 - INFO - 상품 데이터 추출 완료: 안다르 레깅스 (소요시간: 4.63초)
+2025-06-02 13:20:06,012 - INFO - iframe 전환 성공 (소요시간: 0.30초)
+2025-06-02 13:20:06,014 - ERROR - iframe 전환 실패: Message: no such element: element not found
+  (Session info: chrome=137.0.7151.55); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000102f1c708 cxxbridge1$str$ptr + 2729312
+1   chromedriver                        0x0000000102f1496c cxxbridge1$str$ptr + 2697156
+2   chromedriver                        0x0000000102a66728 cxxbridge1$string$len + 90444
+3   chromedriver                        0x0000000102a77164 cxxbridge1$string$len + 158600
+4   chromedriver                        0x0000000102a76240 cxxbridge1$string$len + 154724
+5   chromedriver                        0x0000000102a6ccf4 cxxbridge1$string$len + 116504
+6   chromedriver                        0x0000000102a6b498 cxxbridge1$string$len + 110268
+7   chromedriver                        0x0000000102a6e728 cxxbridge1$string$len + 123212
+8   chromedriver                        0x0000000102a6e7d0 cxxbridge1$string$len + 123380
+9   chromedriver                        0x0000000102ab0520 cxxbridge1$string$len + 393028
+10  chromedriver                        0x0000000102af0a4c cxxbridge1$string$len + 656496
+11  chromedriver                        0x0000000102aef0c4 cxxbridge1$string$len + 649960
+12  chromedriver                        0x0000000102aa1bc0 cxxbridge1$string$len + 333284
+13  chromedriver                        0x0000000102ee0298 cxxbridge1$str$ptr + 2482416
+14  chromedriver                        0x0000000102ee352c cxxbridge1$str$ptr + 2495364
+15  chromedriver                        0x0000000102ec1ae0 cxxbridge1$str$ptr + 2357560
+16  chromedriver                        0x0000000102ee3db4 cxxbridge1$str$ptr + 2497548
+17  chromedriver                        0x0000000102eb2dec cxxbridge1$str$ptr + 2296900
+18  chromedriver                        0x0000000102f03c4c cxxbridge1$str$ptr + 2628260
+19  chromedriver                        0x0000000102f03dd8 cxxbridge1$str$ptr + 2628656
+20  chromedriver                        0x0000000102f145b8 cxxbridge1$str$ptr + 2696208
+21  libsystem_pthread.dylib             0x00000001944282e4 _pthread_start + 136
+22  libsystem_pthread.dylib             0x00000001944230fc thread_start + 8
+ (소요시간: 0.14초)
+2025-06-02 13:20:07,497 - INFO - iframe 전환 성공 (소요시간: 0.15초)
+2025-06-02 13:20:07,592 - INFO - 상품 데이터 추출 완료: 루디아k청바지77 2사이즈 (소요시간: 2.43초)
+2025-06-02 13:20:08,615 - INFO - iframe 전환 성공 (소요시간: 0.38초)
+2025-06-02 13:20:09,305 - INFO - 상품 데이터 추출 완료: 새상품) 린(lynn) 핀턱 블라우스 55 (소요시간: 6.86초)
+2025-06-02 13:20:09,310 - INFO - 상품 데이터 추출 완료: 새상품) 린(lynn) 핀턱 블라우스 55 (소요시간: 5.80초)
+2025-06-02 13:20:09,316 - INFO - 상품 데이터 추출 완료: 새상품) 린(lynn) 핀턱 블라우스 55 (소요시간: 3.30초)
+2025-06-02 13:20:10,654 - INFO - iframe 전환 성공 (소요시간: 0.86초)
+2025-06-02 13:20:11,227 - INFO - 상품 데이터 추출 완료: 스투시 다이스 블러쉬 딸기우유색 반팔 (소요시간: 3.63초)
+2025-06-02 13:20:12,036 - INFO - iframe 전환 성공 (소요시간: 0.39초)
+2025-06-02 13:20:12,038 - ERROR - iframe 전환 실패: Message: no such element: element not found
+  (Session info: chrome=137.0.7151.55); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000102f1c708 cxxbridge1$str$ptr + 2729312
+1   chromedriver                        0x0000000102f1496c cxxbridge1$str$ptr + 2697156
+2   chromedriver                        0x0000000102a66728 cxxbridge1$string$len + 90444
+3   chromedriver                        0x0000000102a77164 cxxbridge1$string$len + 158600
+4   chromedriver                        0x0000000102a76240 cxxbridge1$string$len + 154724
+5   chromedriver                        0x0000000102a6ccf4 cxxbridge1$string$len + 116504
+6   chromedriver                        0x0000000102a6b498 cxxbridge1$string$len + 110268
+7   chromedriver                        0x0000000102a6e728 cxxbridge1$string$len + 123212
+8   chromedriver                        0x0000000102a6e7d0 cxxbridge1$string$len + 123380
+9   chromedriver                        0x0000000102ab0520 cxxbridge1$string$len + 393028
+10  chromedriver                        0x0000000102af0a4c cxxbridge1$string$len + 656496
+11  chromedriver                        0x0000000102aef0c4 cxxbridge1$string$len + 649960
+12  chromedriver                        0x0000000102aa1bc0 cxxbridge1$string$len + 333284
+13  chromedriver                        0x0000000102ee0298 cxxbridge1$str$ptr + 2482416
+14  chromedriver                        0x0000000102ee352c cxxbridge1$str$ptr + 2495364
+15  chromedriver                        0x0000000102ec1ae0 cxxbridge1$str$ptr + 2357560
+16  chromedriver                        0x0000000102ee3db4 cxxbridge1$str$ptr + 2497548
+17  chromedriver                        0x0000000102eb2dec cxxbridge1$str$ptr + 2296900
+18  chromedriver                        0x0000000102f03c4c cxxbridge1$str$ptr + 2628260
+19  chromedriver                        0x0000000102f03dd8 cxxbridge1$str$ptr + 2628656
+20  chromedriver                        0x0000000102f145b8 cxxbridge1$str$ptr + 2696208
+21  libsystem_pthread.dylib             0x00000001944282e4 _pthread_start + 136
+22  libsystem_pthread.dylib             0x00000001944230fc thread_start + 8
+ (소요시간: 0.19초)
+2025-06-02 13:20:12,039 - ERROR - iframe 전환 실패: Message: no such element: element not found
+  (Session info: chrome=137.0.7151.55); For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Stacktrace:
+0   chromedriver                        0x0000000102f1c708 cxxbridge1$str$ptr + 2729312
+1   chromedriver                        0x0000000102f1496c cxxbridge1$str$ptr + 2697156
+2   chromedriver                        0x0000000102a66728 cxxbridge1$string$len + 90444
+3   chromedriver                        0x0000000102a77164 cxxbridge1$string$len + 158600
+4   chromedriver                        0x0000000102a76240 cxxbridge1$string$len + 154724
+5   chromedriver                        0x0000000102a6ccf4 cxxbridge1$string$len + 116504
+6   chromedriver                        0x0000000102a6b498 cxxbridge1$string$len + 110268
+7   chromedriver                        0x0000000102a6e728 cxxbridge1$string$len + 123212
+8   chromedriver                        0x0000000102a6e7d0 cxxbridge1$string$len + 123380
+9   chromedriver                        0x0000000102ab0520 cxxbridge1$string$len + 393028
+10  chromedriver                        0x0000000102af0a4c cxxbridge1$string$len + 656496
+11  chromedriver                        0x0000000102aef0c4 cxxbridge1$string$len + 649960
+12  chromedriver                        0x0000000102aa1bc0 cxxbridge1$string$len + 333284
+13  chromedriver                        0x0000000102ee0298 cxxbridge1$str$ptr + 2482416
+14  chromedriver                        0x0000000102ee352c cxxbridge1$str$ptr + 2495364
+15  chromedriver                        0x0000000102ec1ae0 cxxbridge1$str$ptr + 2357560
+16  chromedriver                        0x0000000102ee3db4 cxxbridge1$str$ptr + 2497548
+17  chromedriver                        0x0000000102eb2dec cxxbridge1$str$ptr + 2296900
+18  chromedriver                        0x0000000102f03c4c cxxbridge1$str$ptr + 2628260
+19  chromedriver                        0x0000000102f03dd8 cxxbridge1$str$ptr + 2628656
+20  chromedriver                        0x0000000102f145b8 cxxbridge1$str$ptr + 2696208
+21  libsystem_pthread.dylib             0x00000001944282e4 _pthread_start + 136
+22  libsystem_pthread.dylib             0x00000001944230fc thread_start + 8
+ (소요시간: 0.04초)
+2025-06-02 13:20:13,431 - INFO - iframe 전환 성공 (소요시간: 0.04초)
+2025-06-02 13:20:13,630 - INFO - 상품 데이터 추출 완료: 자라 정품 핑크 미니원피스 M사이즈 팝니다 7794/939 (소요시간: 4.33초)
+2025-06-02 13:20:13,990 - INFO - 상품 데이터 추출 완료: 자라 정품 핑크 미니원피스 M사이즈 팝니다 7794/939 (소요시간: 2.75초)
+2025-06-02 13:20:15,175 - INFO - iframe 전환 성공 (소요시간: 1.01초)
+2025-06-02 13:20:15,757 - INFO - 상품 데이터 추출 완료: 8부 연청바지 (소요시간: 3.72초)
+2025-06-02 13:20:26,797 - ERROR - iframe 전환 실패: Message: 
+Stacktrace:
+0   chromedriver                        0x0000000102f1c708 cxxbridge1$str$ptr + 2729312
+1   chromedriver                        0x0000000102f1496c cxxbridge1$str$ptr + 2697156
+2   chromedriver                        0x0000000102a66728 cxxbridge1$string$len + 90444
+3   chromedriver                        0x0000000102aad9b8 cxxbridge1$string$len + 381916
+4   chromedriver                        0x0000000102aef0c4 cxxbridge1$string$len + 649960
+5   chromedriver                        0x0000000102aa1bc0 cxxbridge1$string$len + 333284
+6   chromedriver                        0x0000000102ee0298 cxxbridge1$str$ptr + 2482416
+7   chromedriver                        0x0000000102ee352c cxxbridge1$str$ptr + 2495364
+8   chromedriver                        0x0000000102ec1ae0 cxxbridge1$str$ptr + 2357560
+9   chromedriver                        0x0000000102ee3db4 cxxbridge1$str$ptr + 2497548
+10  chromedriver                        0x0000000102eb2dec cxxbridge1$str$ptr + 2296900
+11  chromedriver                        0x0000000102f03c4c cxxbridge1$str$ptr + 2628260
+12  chromedriver                        0x0000000102f03dd8 cxxbridge1$str$ptr + 2628656
+13  chromedriver                        0x0000000102f145b8 cxxbridge1$str$ptr + 2696208
+14  libsystem_pthread.dylib             0x00000001944282e4 _pthread_start + 136
+15  libsystem_pthread.dylib             0x00000001944230fc thread_start + 8
+ (소요시간: 10.26초)
+2025-06-02 13:20:26,813 - INFO - 크롤링 완료! 총 20개의 상품이 수집되었습니다. (총 소요시간: 60.57초)
+2025-06-02 13:20:26,813 - INFO - 마지막으로 크롤링한 URL: https://cafe.naver.com/ArticleRead.nhn?clubid=10050146&page=2&menuid=356&boardtype=L&articleid=1107328837&referrerAllArticles=false
+2025-06-02 13:20:35,057 - INFO - WebDriver 종료

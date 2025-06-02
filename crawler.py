@@ -12,11 +12,18 @@ import tempfile
 import os
 import logging
 from datetime import datetime
+import concurrent.futures
+from queue import Queue
+import threading
 
 class JoonggoCrawler:
-    def __init__(self, headless=False):
+    def __init__(self, headless=False, max_workers=4):
         self.setup_logger()
         self.setup_driver(headless)
+        self.max_workers = max_workers
+        self.data_queue = Queue()
+        self.save_lock = threading.Lock()
+        self.batch_size = 10  # 데이터 저장 배치 크기
         
     def setup_logger(self):
         # 로거 설정
@@ -202,6 +209,27 @@ class JoonggoCrawler:
             self.logger.error(f"게시글 데이터 추출 실패 ({url}): {e} (소요시간: {time.time() - start_time:.2f}초)")
             return None
 
+    def save_batch_to_csv(self, output_file, batch_data):
+        """배치 데이터를 CSV 파일에 저장"""
+        with self.save_lock:
+            df = pd.DataFrame(batch_data)
+            df.to_csv(output_file, mode='a', header=False, index=False, encoding='utf-8-sig')
+
+    def process_url_batch(self, urls, output_file):
+        """URL 배치를 처리하고 결과를 저장"""
+        batch_data = []
+        for url in urls:
+            post_data = self.extract_post_data(url)
+            if post_data:
+                batch_data.append(post_data)
+                if len(batch_data) >= self.batch_size:
+                    self.save_batch_to_csv(output_file, batch_data)
+                    batch_data = []
+        
+        # 남은 데이터 저장
+        if batch_data:
+            self.save_batch_to_csv(output_file, batch_data)
+
     def crawl_category(self, category_url, max_pages=1, last_url=None):
         start_time = time.time()
         self.logger.info(f"카테고리 크롤링 시작: {category_url}")
@@ -217,19 +245,24 @@ class JoonggoCrawler:
         df.to_csv(output_file, index=False, encoding='utf-8-sig')
         self.logger.info(f"CSV 파일 생성됨: {output_file}")
         
-        posts_data = []
-        for url in tqdm(post_urls, desc="게시글 데이터 수집 중"):
-            post_data = self.extract_post_data(url)
-            if post_data:
-                posts_data.append(post_data)
-                # 실시간으로 CSV 파일 업데이트
-                df = pd.DataFrame([post_data])
-                df.to_csv(output_file, mode='a', header=False, index=False, encoding='utf-8-sig')
+        # URL을 워커 수에 맞게 분배
+        urls_per_worker = len(post_urls) // self.max_workers
+        url_batches = [post_urls[i:i + urls_per_worker] for i in range(0, len(post_urls), urls_per_worker)]
         
-        self.logger.info(f"크롤링 완료! 총 {len(posts_data)}개의 상품이 수집되었습니다. (총 소요시간: {time.time() - start_time:.2f}초)")
-        if posts_data:
-            self.logger.info(f"마지막으로 크롤링한 URL: {posts_data[-1]['url']}")
-        return posts_data
+        # 병렬 처리 시작
+        self.logger.info(f"병렬 처리 시작 (워커 수: {self.max_workers})")
+        with concurrent.futures.ThreadPoolExecutor(max_workers=self.max_workers) as executor:
+            futures = [executor.submit(self.process_url_batch, batch, output_file) for batch in url_batches]
+            concurrent.futures.wait(futures)
+        
+        # 수집된 데이터 수 계산
+        df = pd.read_csv(output_file, encoding='utf-8-sig')
+        total_posts = len(df)
+        
+        self.logger.info(f"크롤링 완료! 총 {total_posts}개의 상품이 수집되었습니다. (총 소요시간: {time.time() - start_time:.2f}초)")
+        if total_posts > 0:
+            self.logger.info(f"마지막으로 크롤링한 URL: {post_urls[-1]}")
+        return df.to_dict('records')
 
     def close(self):
         self.logger.info("WebDriver 종료")

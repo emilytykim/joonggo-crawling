@@ -1,0 +1,29 @@
+2025-06-02 12:42:29,360 - INFO - WebDriver 설정 시작
+2025-06-02 12:42:33,344 - INFO - WebDriver 설정 완료 (소요시간: 3.98초)
+2025-06-02 12:45:13,479 - INFO - 카테고리 크롤링 시작: https://cafe.naver.com/joonggonara/ArticleList.nhn?search.clubid=10050146&search.menuid=356&search.boardtype=L
+2025-06-02 12:45:13,483 - INFO - URL 수집 시작 (최대 2페이지)
+2025-06-02 12:45:15,507 - ERROR - iframe 전환 실패: Message: no such window: target window already closed
+from unknown error: web view not found
+  (Session info: chrome=137.0.7151.55)
+Stacktrace:
+0   chromedriver                        0x00000001046b4708 cxxbridge1$str$ptr + 2729312
+1   chromedriver                        0x00000001046ac96c cxxbridge1$str$ptr + 2697156
+2   chromedriver                        0x00000001041fe728 cxxbridge1$string$len + 90444
+3   chromedriver                        0x00000001041d8744 chromedriver + 132932
+4   chromedriver                        0x000000010426dc9c cxxbridge1$string$len + 546496
+5   chromedriver                        0x0000000104286be0 cxxbridge1$string$len + 648708
+6   chromedriver                        0x0000000104239bc0 cxxbridge1$string$len + 333284
+7   chromedriver                        0x0000000104678298 cxxbridge1$str$ptr + 2482416
+8   chromedriver                        0x000000010467b52c cxxbridge1$str$ptr + 2495364
+9   chromedriver                        0x0000000104659ae0 cxxbridge1$str$ptr + 2357560
+10  chromedriver                        0x000000010467bdb4 cxxbridge1$str$ptr + 2497548
+11  chromedriver                        0x000000010464adec cxxbridge1$str$ptr + 2296900
+12  chromedriver                        0x000000010469bc4c cxxbridge1$str$ptr + 2628260
+13  chromedriver                        0x000000010469bdd8 cxxbridge1$str$ptr + 2628656
+14  chromedriver                        0x00000001046ac5b8 cxxbridge1$str$ptr + 2696208
+15  libsystem_pthread.dylib             0x00000001944282e4 _pthread_start + 136
+16  libsystem_pthread.dylib             0x00000001944230fc thread_start + 8
+ (소요시간: 0.00초)
+2025-06-02 12:45:15,508 - INFO - 수집된 게시글 URL 수: 0
+2025-06-02 12:45:15,534 - INFO - CSV 파일 생성됨: joonggo_data_1748835915.csv
+2025-06-02 12:45:15,534 - INFO - WebDriver 종료
