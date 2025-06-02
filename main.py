@@ -114,6 +114,9 @@ def main():
     # 여성패션 의류 카테고리 URL
     category_url = "https://cafe.naver.com/joonggonara/ArticleList.nhn?search.clubid=10050146&search.menuid=356&search.boardtype=L"
     
+    # 마지막으로 크롤링한 URL (None이면 처음부터 크롤링)
+    last_url = None  # 여기에 마지막으로 크롤링한 URL을 넣으면 됩니다
+    
     # 크롤러 인스턴스 생성 (headless=False로 설정하여 브라우저 표시)
     crawler = JoonggoCrawler(headless=False)
     
@@ -124,7 +127,7 @@ def main():
         input("로그인이 완료되면 엔터를 눌러주세요...")
         
         # 카테고리 크롤링 실행 (테스트를 위해 2페이지만 크롤링)
-        crawler.crawl_category(category_url, max_pages=2)
+        crawler.crawl_category(category_url, max_pages=2, last_url=last_url)
         
     except Exception as e:
         print(f"크롤링 중 오류 발생: {e}")
