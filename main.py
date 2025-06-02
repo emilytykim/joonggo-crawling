@@ -1,3 +1,4 @@
+import re
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.service import Service
@@ -16,6 +17,10 @@ def setup_driver():
     service = Service(ChromeDriverManager().install())
     driver = webdriver.Chrome(service=service, options=options)
     return driver
+
+def extract_article_id(url):
+    m = re.search(r'/articles/(\d+)', url)
+    return int(m.group(1)) if m else None
 
 def extract_album_list_data(driver, category_name="여성패션"):
     items = driver.find_elements(By.CSS_SELECTOR, "ul.article-album-view > li.item")
@@ -44,8 +49,10 @@ def extract_album_list_data(driver, category_name="여성패션"):
             status = ""
         try:
             url = item.find_element(By.CSS_SELECTOR, "dl > dt.tit_area > a.tit").get_attribute("href")
+            article_id = extract_article_id(url)
         except:
             url = ""
+            article_id = None
         results.append({
             "category": category_name,
             "status": status,
@@ -53,19 +60,26 @@ def extract_album_list_data(driver, category_name="여성패션"):
             "price": price,
             "nickname": nickname,
             "date": date,
-            "url": url
+            "url": url,
+            "article_id": article_id
         })
     return results
 
-def crawl_category_album(driver, category_url, max_pages=2, category_name="여성패션"):
+def crawl_category_album(driver, category_url, start_page=1, end_page=50, category_name="여성패션", last_id=None):
     all_results = []
-    for page in range(1, max_pages + 1):
+    for page in range(start_page, end_page + 1):
         url = f"{category_url}?page={page}&viewType=I&size=20"
         driver.get(url)
         time.sleep(2)
         results = extract_album_list_data(driver, category_name)
-        all_results.extend(results)
-        print(f"페이지 {page} 수집 완료: {len(results)}건")
+        for row in results:
+            article_id = row.get("article_id")
+            if article_id is None:
+                continue
+            if last_id is not None and article_id >= last_id:
+                continue  # 이미 수집한 글이거나 더 최신 글
+            all_results.append(row)
+        print(f"페이지 {page} 수집 완료: {len(results)}건 (저장: {len(all_results)})")
     return all_results
 
 def save_csv(data, filename):
@@ -75,16 +89,29 @@ def save_csv(data, filename):
     df.to_csv(path, index=False, encoding="utf-8-sig")
     print(f"✅ 저장 완료: {path} ({len(data)}건)")
 
+def get_last_id_from_csv(csv_path):
+    if not os.path.exists(csv_path):
+        return None
+    df = pd.read_csv(csv_path)
+    if 'article_id' in df.columns and not df.empty:
+        return int(df['article_id'].min())  # 과거로 갈수록 ID가 작아짐
+    return None
+
 def main():
     driver = setup_driver()
-    # 네이버 로그인
     driver.get("https://nid.naver.com/nidlogin.login")
     input("네이버 로그인을 완료하고 엔터를 누르세요...")
 
     category_url = "https://cafe.naver.com/f-e/cafes/10050146/menus/356"
-    category_name = "여성패션"
-    results = crawl_category_album(driver, category_url, max_pages=2, category_name=category_name)
-    save_csv(results, "joonggo_album.csv")
+    category_name = "여성패션_의류"
+    csv_path = "results/joonggo_album.csv"
+    start_page = 1
+    end_page = 100
+    last_id = get_last_id_from_csv(csv_path)
+    results = crawl_category_album(driver, category_url, start_page, end_page, category_name=category_name, last_id=last_id)
+    # 파일명 자동 생성
+    filename = f"{category_name}_{start_page}-{end_page}.csv"
+    save_csv(results, filename)
     driver.quit()
 
 if __name__ == "__main__":
