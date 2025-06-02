@@ -28,8 +28,8 @@ def load_existing_article_ids():
     """기존 CSV 파일들에서 article_id를 로드하고 별도 파일로 저장"""
     article_ids = set()
     
-    # CSV 파일들에서 ID 로드
-    for file in glob.glob("results/여성패션_의류_*.csv"):
+    # CSV 파일들에서 ID 로드 (명품 전용)
+    for file in glob.glob("results/명품_*.csv"):
         try:
             df = pd.read_csv(file)
             if 'article_id' in df.columns:
@@ -47,7 +47,8 @@ def load_existing_article_ids():
     print(f"총 {len(article_ids)}개의 고유 ID 로드 완료")
     return article_ids
 
-def extract_album_list_data(driver, category_name="여성패션"):
+def extract_album_list_data(driver, category_name="명품"):
+    category_name = category_name.replace('/', '_')
     items = driver.find_elements(By.CSS_SELECTOR, "ul.article-album-view > li.item")
     print(f"상품 li 개수: {len(items)}")  # 디버깅용
     results = []
@@ -90,6 +91,17 @@ def extract_album_list_data(driver, category_name="여성패션"):
         })
     return results
 
+def save_csv(data, filename, header=True):
+    os.makedirs("results", exist_ok=True)
+    path = f"results/{filename}"
+    df = pd.DataFrame(data)
+    columns = ["category", "status", "title", "price", "nickname", "date", "url", "article_id"]
+    output_columns = ["category", "status", "title", "price", "nickname", "date"]
+    df = df[columns] if all(col in df.columns for col in columns) else df
+    df_out = df[output_columns] if all(col in df.columns for col in output_columns) else df
+    df_out.to_csv(path, mode='a', header=header, index=False, encoding="utf-8-sig")
+    print(f"✅ 저장 완료: {path} (+{len(data)}건)")
+
 def is_date_format(s):
     return bool(re.match(r"^\d{4}\.\d{2}\.\d{2}$", s))
 
@@ -111,10 +123,12 @@ def crawl_category_album(driver, category_url, start_page, end_page, category_na
             if article_id is None:
                 continue
             post_date = row.get("date", "")
-            if is_date_format(post_date) and post_date == stop_date:
-                stop_flag = True
-                print(f"중단 기준 날짜({stop_date}) 게시글 발견: {post_date} (page {page})")
-                break
+            # 2025.05.31까지 저장, 그 이전(더 작은 날짜)은 저장하지 않음
+            if is_date_format(post_date):
+                if post_date < stop_date:
+                    stop_flag = True
+                    print(f"중단 기준 날짜({stop_date})보다 이전 게시글 발견: {post_date} (page {page})")
+                    break
             new_results.append(row)
         all_results.extend(new_results)
         print(f"페이지 {page} 수집 완료: {len(results)}건 (저장: {len(new_results)}건, 중복 제외: {len(results) - len(new_results)}건)")
@@ -123,30 +137,57 @@ def crawl_category_album(driver, category_url, start_page, end_page, category_na
     print(f"이번 크롤링에서 {len(all_results)}개의 게시글을 수집했습니다.")
     return all_results
 
-def save_csv(data, filename, header=True):
-    os.makedirs("results", exist_ok=True)
-    path = f"results/{filename}"
-    df = pd.DataFrame(data)
-    if header:
-        df.to_csv(path, index=False, encoding="utf-8-sig", header=True)
-    else:
-        df.to_csv(path, index=False, encoding="utf-8-sig", header=False)
-    print(f"✅ 저장 완료: {path} ({len(data)}건)")
-
 def main():
     driver = setup_driver()
     driver.get("https://nid.naver.com/nidlogin.login")
     input("네이버 로그인을 완료하고 엔터를 누르세요...")
 
-    # 크롤링할 카테고리 목록
+    # 명품 카테고리 목록
     categories = [
         {
-            "url": "https://cafe.naver.com/f-e/cafes/10050146/menus/364",
-            "name": "여성패션_가방/잡화"
+            "url": "https://cafe.naver.com/f-e/cafes/10050146/menus/1007",
+            "name": "명품_여성의류",
+            "end_page": 85
         },
         {
-            "url": "https://cafe.naver.com/f-e/cafes/10050146/menus/360",
-            "name": "여성패션_기타"
+            "url": "https://cafe.naver.com/f-e/cafes/10050146/menus/1008",
+            "name": "명품_남성의류",
+            "end_page": 60
+        },
+        {
+            "url": "https://cafe.naver.com/f-e/cafes/10050146/menus/782",
+            "name": "명품_가방",
+            "end_page": 61
+        },
+        {
+            "url": "https://cafe.naver.com/f-e/cafes/10050146/menus/1011",
+            "name": "명품_시계",
+            "end_page": 98
+        },
+        {
+            "url": "https://cafe.naver.com/f-e/cafes/10050146/menus/791",
+            "name": "명품_유아_아동",
+            "end_page": 28
+        },
+        {
+            "url": "https://cafe.naver.com/f-e/cafes/10050146/menus/1010",
+            "name": "명품_남성신발",
+            "end_page": 15
+        },
+        {
+            "url": "https://cafe.naver.com/f-e/cafes/10050146/menus/1009",
+            "name": "명품_여성신발",
+            "end_page": 18
+        },
+        {
+            "url": "https://cafe.naver.com/f-e/cafes/10050146/menus/785",
+            "name": "명품_악세서리",
+            "end_page": 48
+        },
+        {
+            "url": "https://cafe.naver.com/f-e/cafes/10050146/menus/787",
+            "name": "명품_기타",
+            "end_page": 28
         }
     ]
     
@@ -158,7 +199,7 @@ def main():
     for category in categories:
         print(f"\n=== {category['name']} 카테고리 크롤링 시작 ===")
         start_page = 1
-        end_page = 300
+        end_page = category['end_page']
         # 슬래시를 밑줄로 변환
         safe_name = category['name'].replace('/', '_')
         filename = f"{safe_name}_{start_page}-{end_page}.csv"
